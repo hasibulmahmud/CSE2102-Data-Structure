@@ -1,20 +1,24 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-///UnDirected and Weighted Graph.
-///Adjacency Mextrix
-int main(){
-    int vertex,edges;
+
+/// Undirected and Weighted Graph using Adjacency Matrix
+int main() {
+    int vertex, edges;
     cin >> vertex >> edges;
-    vector<vector<int> >AdjMat(vertex,vector<int>(vertex,0));
-    int u,v,weight;
-    for(int i=0;i<edges;i++){
-        cin >> u>>v >> weight;
+
+    // initialize adjacency matrix with 0
+    vector<vector<int>> AdjMat(vertex, vector<int>(vertex, 0));
+
+    int u, v, weight;
+    for (int i = 0; i < edges; i++) {
+        cin >> u >> v >> weight;
         AdjMat[u][v] = weight;
-        AdjMat[v][u] = weight;
+        AdjMat[v][u] = weight; // because undirected
     }
-    ///display
-    for(int i=0;i<vertex ;i++){
-        for(int j=0;j<vertex ;j++){
+
+    /// Display matrix
+    for (int i = 0; i < vertex; i++) {
+        for (int j = 0; j < vertex; j++) {
             cout << AdjMat[i][j] << " ";
         }
         cout << endl;
