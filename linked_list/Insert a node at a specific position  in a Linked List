@@ -1,0 +1,17 @@
+//HackerRank problem solve.
+SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* llist, int data, int position) {
+SinglyLinkedListNode* newnode = new SinglyLinkedListNode(data);
+if(position==0){
+    newnode->next = llist; 
+    return llist;
+}
+SinglyLinkedListNode* temp = llist;
+while(--position){
+    temp=temp->next;
+    
+}
+newnode->next=temp->next;
+temp->next=newnode;
+return llist;
+
+}
