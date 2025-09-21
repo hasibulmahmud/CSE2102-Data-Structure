@@ -32,6 +32,9 @@ public:
         }
         return arr[top--];
     }
+    int peek(){
+    return arr[top];
+    }
 
     void display() {
         if (ISempty()) {
@@ -58,10 +61,11 @@ int main() {
     st.pop();
     st.pop();
     st.display();
-
+    ///Top Element.
+    cout << "Top Element:" << st.peek() << endl;
     st.pop();
     st.pop();
     st.pop();
     st.display();
-}
 
+}
