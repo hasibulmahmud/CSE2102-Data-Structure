@@ -1,1 +1,67 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class stacks {
+public:
+    int* arr;
+    int top;
+    int size;
+
+    stacks(int n = 100) {
+        size = n;
+        arr = new int[size];
+        top = -1;
+    }
+
+    bool ISempty() {
+        return top == -1;
+    }
+
+    void push(int val) {
+        if (top == size - 1) {
+            cout << "OverFlow" << endl;
+            return;
+        }
+        arr[++top] = val;
+    }
+
+    int pop() {
+        if (ISempty()) {
+            cout << "UnderFlow" << endl;
+            return -1;
+        }
+        return arr[top--];
+    }
+
+    void display() {
+        if (ISempty()) {
+            cout << "Stack is empty" << endl;
+            return;
+        }
+        for (int i = top; i >= 0; i--) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    stacks st;
+    st.push(10);
+    st.push(20);
+    st.push(30);
+    st.push(40);
+    st.push(50);
+    st.display();
+
+    st.pop();
+    st.pop();
+    st.pop();
+    st.display();
+
+    st.pop();
+    st.pop();
+    st.pop();
+    st.display();
+}
 
