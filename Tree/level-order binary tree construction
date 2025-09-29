@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+public:
+    int data;
+    Node* left,* right;
+    Node(int val){
+    data = val;
+    left = right = NULL;
+    }
+};
+int main(){
+    int root_val;
+    cout << "Enter the Root Value:";
+    cin >> root_val;
+    cout <<endl;
+    Node* Root = new Node(root_val);
+    queue<Node*> q;
+    q.push(Root);
+
+    while(!q.empty()){
+            Node* curr = q.front();
+    q.pop();
+    cout << "Enter " << curr->data << " Left child:";
+       int val;
+       cin >> val;
+       Node* temp = new Node(val);
+       if(temp->data!=-1){
+        curr->left = temp;
+        q.push(temp);
+       }
+       cout << "Enter "<< curr->data <<  " right child:";
+       int val1;
+       cin >> val1;
+        Node* temp1 = new Node(val1);
+        if(temp->data!=-1){
+        curr->right = temp1;
+        q.push(temp1);
+       }
+    }
+
+}
