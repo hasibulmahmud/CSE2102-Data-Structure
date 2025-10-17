@@ -1,7 +1,7 @@
 ///Practice in GFG
 class Solution {
   public:
-    // Function to return Breadth First Traversal of given graph.
+    // Function to return Breadth First Traversal of given graph with adjacency matrix.
     vector<int> bfs(vector<vector<int>> &adj) {
       int n= adj.size();
         queue<int>q;
