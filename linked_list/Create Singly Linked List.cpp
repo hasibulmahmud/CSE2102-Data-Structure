@@ -1,0 +1,94 @@
+#include<bits/stdc++.h>
+using namespace std;
+class node{
+    public:
+    int data;
+    node* next;
+    node(int x){
+        data = x;
+        next = NULL;
+    }
+};
+class singly_linked_list{
+    node *head;
+    public:
+    singly_linked_list(){
+        head = NULL;
+    }
+    void insert(int value){
+        node* newnode=new node(value);
+        if(head==NULL){
+            head= newnode;
+            return;
+        }
+        node* temp= head;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next = newnode;
+
+    }
+    void delete_node(int value){
+        if(head == NULL){
+            return;
+        }
+        node* prev = NULL;
+        node* temp = head;
+        bool first= false;
+        while(temp->data != value){
+            prev = temp;
+            temp=temp->next;
+            first = true;
+        }
+        if(!first){
+            head=head->next;
+        }else{
+            prev->next = temp->next;
+        }
+      
+
+        
+
+    }
+    bool search(int value){
+        node * temp = head;
+        bool check= false;
+        while(1){
+            if(temp->data == value){
+                check = true;
+            }
+            if(temp->next== NULL){
+                break;
+            }
+            temp = temp->next;
+        }
+        if(check){
+            cout << "This number has in list" <<endl;
+        }else{
+            cout << "This number has not in list" <<endl;
+        }
+    }
+    void display()
+    {
+        node* temp = head;
+        while(temp!=NULL){
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+int main(){
+    singly_linked_list l1;
+   l1.insert(10);
+   l1.insert(12);
+   l1.insert(13);
+   l1.insert(14);
+   l1.display();
+   l1.delete_node(10);
+   l1.display();
+   l1.insert(10);
+   l1.display();
+   l1.search(10);
+
+}

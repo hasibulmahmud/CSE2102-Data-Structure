@@ -14,7 +14,7 @@ int partition_num(int arr[],int low,int high){
     swap(arr[i+1],arr[high]);
     return (i+1);
 }
-QuickSort(int arr[],int low,int high){
+void QuickSort(int arr[],int low,int high){
     if(low<high){
         int pi = partition_num(arr,low,high);
         QuickSort(arr,low,pi-1);
